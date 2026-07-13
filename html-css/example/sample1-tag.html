@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- head: 文書に関するメタ情報をまとめる -->
+    <meta charset="UTF-8"><!-- meta: 文字コードなどのメタ情報 -->
+    <meta name="description" content="HTMLタグ説明用サンプルページ">
+    <!--name="description" : 該当ページの説明文・要約をGoogleなどの検索エンジンに伝えるために使われる -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--name="viewport" : レスポンシブデザインを使用しているページで、モバイルデバイスでの表示を最適化するためブラウザに指示 -->
+    <title>HTMLタグ説明サンプル</title><!-- title: ブラウザやページのタブに表示されるタイトル -->
+
+    <!-- style: ページ内のCSSを記述
+     CSSの実装方法には3種類ある。
+     　1.リンキング(外部)スタイルシート
+     　2.埋め込み(内部)スタイルシート
+     　3.インラインスタイルシート
+    -->
+
+    <!-- 下記は埋め込み(内部)スタイルシート -->
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background: #eee;
+            padding: 1rem;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            border: 1px solid #ccc;
+            padding: 1rem;
+        }
+
+        nav, a {
+            margin-right: 1rem;
+        }
+
+        pre {
+            background: #dddddd;
+            padding: 0.5rem;
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 0.5rem;
+        }
+
+        .highlight {
+            color: #d00;
+        }
+
+        .inline-span {
+            background: #f4f484;
+        }
+
+        .vcenter-label {
+            display: inline-block; /* インライン要素のまま、サイズを持てるようにする */
+            vertical-align: middle; /* textarea の高さに対して上下中央に揃える */
+        }
+
+        .vcenter-textarea {
+            vertical-align: middle; /* 念のため textarea 側も中央揃え */
+        }
+    </style>
+
+    <!-- 下記はリンキング(外部)スタイルシート -->
+    <!-- link: 外部リソースへのリンク（ここではダミーCSS） -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- script: JavaScriptなどの実行できるコードやデータを記述 -->
+    <script>
+        function showAlert() {
+            alert("scriptタグ：JavaScriptで動きを追加できます。");
+        }
+    </script>
+</head>
+<body>
+<!-- body: 画面に表示されるコンテンツ(HTML文書)全体 -->
+
+<header>
+    <!-- header: ページやセクションのヘッダー -->
+    <h1>HTMLタグ説明サンプルページ（h1）</h1>
+    <nav>
+        <!-- nav: 文書内の他の部分や他文書へのナビゲーションリンクを扱う -->
+        <a href="#text">テキスト系タグ</a> <!-- #text はid="text"が付いている要素にスクロールするためのリンク指定 -->
+        <a href="#layout">レイアウト系タグ</a>
+        <a href="#table">表組みタグ</a>
+        <a href="#list">リストタグ</a>
+        <a href="#media">リンク・画像タグ</a>
+        <a href="#form">フォームタグ</a>
+        <button type="button" onclick="showAlert()">scriptの動作を確認</button>
+    </nav>
+</header>
+
+<main>
+    <!-- main: ページの主な内容(主題) -->
+
+    <!-- section: ページ内をテーマごとにグループ化 -->
+    <section id="text">
+        <h2>テキスト系タグ（h2）</h2><!-- h1-h6: 見出し -->
+        <p>pタグ：段落を表します。文章の基本的なブロックです。</p><!-- p: 本文テキストを段落で区切る -->
+
+        <h3>見出しタグ（h3）</h3>
+        <h1>h1：最上位の見出し</h1>
+        <h2>h2：h1の下位見出し</h2>
+        <h3>h3：さらに下位の見出し</h3>
+        <h4>h4：小さめの見出し</h4>
+        <h5>h5：より小さい見出し</h5>
+        <h6>h6：最も小さい見出し</h6>
+
+        <h3>preタグ（整形済みテキスト）</h3><!-- pre: ソースコードなど整形済みのテキストを表示 -->
+        <p>preタグ：改行やスペースをそのまま表示します。コード例などに使います。</p>
+        <pre>
+&lt;pre&gt;タグの中では
+  インデントや改行が
+    そのまま表示されます。
+      例：コードスニペットなど
+      </pre>
+
+        <h3>spanタグ（インライン要素）</h3>
+        <p>
+            <!-- span: 特定の部分をスタイル付けする際に使用 -->
+            spanタグ：<span class="inline-span">文中の一部分だけを装飾</span>したいときに使うインライン要素です。
+            <span class="highlight">この部分は赤色で表示されます。</span>
+        </p>
+    </section>
+
+    <section id="layout">
+        <h2>レイアウト系タグ（div, sectionなど）</h2>
+        <p>sectionタグ：意味のあるまとまりごとに区切るコンテナです。</p>
+        <div>
+            <!-- div: 囲った要素をひとつのグループとして扱う -->
+            <p>divタグ：汎用的なブロックレベル要素で、レイアウトやグループ化に使います。</p>
+
+            <!-- 下記はインラインスタイルシート -->
+            <div style="border: 1px dashed #666; padding: 0.5rem;">
+                このdivは、入れ子になったdivの例です。
+            </div>
+        </div>
+    </section>
+
+    <section id="table">
+        <h2>表組みタグ（table, thead, tbody, tfoot, tr, td）</h2>
+        <p>tableタグ：表形式のデータを表示します。</p>
+        <table><!-- table: 表形式データを表す -->
+            <thead><!-- thead: 表のヘッダー;構造を明示 -->
+            <tr><!-- tr: 表の「行」 -->
+                <th>thead：ヘッダー行</th><!-- th: 表の「見出しセル」 -->
+                <th>説明</th>
+            </tr>
+            </thead>
+            <tbody><!-- thead: 表の本体;構造を明示 -->
+            <tr>
+                <td>tbody：データ行1</td><!-- th: 表の「データセル」 -->
+                <td>trは行、tdはセル（データ）を表します。</td>
+            </tr>
+            <tr>
+                <td>tbody：データ行2</td>
+                <td>複数行のデータをまとめて表示できます。</td>
+            </tr>
+            </tbody>
+            <tfoot><!-- tfoot: 表のフッター;構造を明示 -->
+            <tr>
+                <td>tfoot：フッター行</td>
+                <td>合計や注釈などを置くことが多いです。</td>
+            </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <section id="list">
+        <h2>リストタグ（ul, ol, li）</h2>
+
+        <h3>ulタグ：順序なしリスト</h3>
+        <ul><!-- ul: 順序なしリスト要素 -->
+            <li>liタグ：リストの1項目です。</li><!-- li: リスト項目(リストアイテム要素) → ul, olとも要素は「li」 -->
+            <li>ulタグは「順序なし」の箇条書きに使います。</li>
+            <li>スタイルで丸や四角などのマーカーを変更できます。</li>
+        </ul>
+
+        <h3>olタグ：順序付きリスト</h3>
+        <ol><!-- ul: 順序付きリスト要素 -->
+            <li>olタグは番号付きのリストです。</li>
+            <li>手順やランキングなど、順序に意味がある場合に使います。</li>
+            <li>type属性で番号の形式（1, a, iなど）を変更できます。</li>
+        </ol>
+    </section>
+
+    <section id="media">
+        <h2>リンク・画像タグ（a, img）</h2>
+
+        <h3>aタグ：リンク</h3>
+        <p>
+            <!-- a: アンカータグ。同一ページ内もしくは他サイトへのハイパーリンク -->
+            aタグ：<a href="https://example.com" target="_blank">別ページへのリンクを作成</a>します。
+            href属性でリンク先URLを指定します。
+        </p>
+
+        <h3>imgタグ：画像</h3>
+        <p>imgタグ：画像を表示します。src属性で画像のURL、alt属性で代替テキストを指定します。</p>
+        <!-- img: 画像の埋め込みに使用 -->
+        <img src="https://placehold.jp/600x300.png" alt="imgタグの例">
+    </section>
+
+    <section id="form">
+        <h2>フォームタグ（form, input, select, option, button）</h2>
+        <p>formタグ：ユーザーからの入力をまとめて送信するための領域です。</p>
+        <!-- form: 各種フォーム関連要素を配置 -->
+        <form action="/submit" method="post">
+            <h3>inputタグ：さまざまな入力欄</h3>
+
+            <p>
+                <label><!-- label: UI項目のキャプション(タイトル or 短い説明) -->
+                    テキスト入力（type="text"）：
+                    <!-- input: 入力要素(ユーザからデータを受け取る) -->
+                    <input type="text" name="username" placeholder="ユーザー名を入力">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    パスワード入力（type="password"）：
+                    <input type="password" name="password" placeholder="パスワードを入力">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    メールアドレス（type="email"）：
+                    <input type="email" name="email" placeholder="example@example.com">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    数値入力（type="number"）：
+                    <input type="number" name="age" min="0" max="120">
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    チェックボックス（type="checkbox"）：
+                    <input type="checkbox" name="agree"> 利用規約に同意する
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    ラジオボタン（type="radio"）：
+                    <input type="radio" name="gender" value="male"> 男性
+                    <input type="radio" name="gender" value="female"> 女性
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    日付入力（type="date"）：
+                    <input type="date" name="birthday">
+                </label>
+            </p>
+
+            <h3>textareaタグ：複数行入力（※テキスト入力と似ているが、inputタグは使わない）</h3>
+            <p>
+                <label class="vcenter-label">
+                    複数行入力（textarea）：
+                    <!-- textarea: 複数行のテキストを入力する要素 -->
+                    <textarea class="vcenter-textarea" name="message" rows="6" cols="40"
+                              placeholder="メッセージを入力"></textarea>
+                </label>
+            </p>
+
+            <h3>selectタグとoptionタグ：プルダウンメニュー</h3>
+            <p>
+                <label>
+                    好きな言語を選択：
+                    <!-- select: 選択肢を用いた入力 -->
+                    <select name="language">
+                        <option value="">選択してください</option><!-- option: 選択肢を定義 -->
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                </label>
+            </p>
+
+            <h3>buttonタグ：ボタン</h3>
+            <p>
+                <!-- button: ボタン要素 -->
+                <button type="submit">フォームを送信（submitボタン）</button>
+                <button type="reset">入力内容をリセット（resetボタン）</button>
+                <button type="button" onclick="alert('buttonタグ：任意の処理を実行できます。');">
+                    任意処理ボタン（type="button"）
+                </button>
+            </p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <!-- footer: ページのフッター -->
+    <p>footerタグ：コピーライトや補足情報などを表示する領域です。こんな感じ。
+    <div>©2026 Fujitsu Learning Media Limited</div>
+    </p>
+</footer>
+</body>
+</html>
