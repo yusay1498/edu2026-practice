@@ -193,6 +193,18 @@ body{
   display: flex;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .input-group {
   border: 1px solid #f2f2f2;
   padding: 5px;
@@ -318,6 +330,7 @@ body{
 }
 
 .free-plan__text{
+  display: block;
   background: #ffc329;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   color: #000000;
@@ -335,6 +348,7 @@ body{
 }
 
 .premium-plan__text{
+  display: block;
   border: 2px solid #ffffff;
   background: #cb3837;
   color: #ffffff;
@@ -404,12 +418,14 @@ body{
 }
 
 .logo-group__npm{
+  display: block;
   width: 50px;
   padding-top: 1rem;
   line-height: 2;
 }
 
 .logo-group__git{
+  display: block;
   width: 50px;
   padding-top: 1rem;
 }
