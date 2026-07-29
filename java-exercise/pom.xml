@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>java-exercise</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>chap03-11</module>
+        <module>chap14</module>
+        <module>chap15</module>
+        <module>chap16</module>
+        <module>chap17</module>
+        <module>chap18</module>
+        <module>chap19</module>
+        <module>chap20</module>
+        <module>chap21</module>
+        <module>chap22</module>
+        <module>chap24</module>
+        <module>chap25</module>
+    </modules>
+
+    <properties>
+        <java.version>25</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Java コンパイル設定（全モジュール共通） -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- 実行可能 jar 作成設定（全モジュール共通） -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- ★ Main-Class は子モジュールごとに変わる可能性があるためここでは書かない -->
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
