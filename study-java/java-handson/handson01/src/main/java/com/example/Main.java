@@ -3,7 +3,10 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
-record Student(int id, String name) {
+record Student(
+        int id,
+        String name
+) {
 }
 
 public class Main {
