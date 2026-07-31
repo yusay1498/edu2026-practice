@@ -1,5 +1,6 @@
 package com.yo1000.toybox.maze;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.random.RandomGenerator;
 
@@ -46,7 +47,7 @@ public class Main {
             }
         }
 
-        RandomGenerator random = RandomGenerator.getDefault();
+        RandomGenerator random = new SecureRandom();
 
         for (int y = 2; y <= height - 3; y += 2) {
             for (int x = 2; x <= width - 3; x += 2) {
