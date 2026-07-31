@@ -53,18 +53,10 @@ public class Main {
             for (int x = 2; x <= width - 3; x += 2) {
                 int direction = random.nextInt(4);
                 switch (direction) {
-                    case 0: // 上
-                        maze[y - 1][x] = true;
-                        break;
-                    case 1: // 下
-                        maze[y + 1][x] = true;
-                        break;
-                    case 2: // 左
-                        maze[y][x - 1] = true;
-                        break;
-                    case 3: // 右
-                        maze[y][x + 1] = true;
-                        break;
+                    case 0 -> maze[y - 1][x] = true;
+                    case 1 -> maze[y + 1][x] = true;
+                    case 2 -> maze[y][x - 1] = true;
+                    case 3 -> maze[y][x + 1] = true;
                 }
             }
         }
