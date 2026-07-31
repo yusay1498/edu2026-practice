@@ -1,6 +1,7 @@
 package com.yo1000.toybox.maze;
 
 import java.util.Arrays;
+import java.util.random.RandomGenerator;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,6 +45,29 @@ public class Main {
                 maze[y][x] = true;
             }
         }
+
+        RandomGenerator random = RandomGenerator.getDefault();
+
+        for (int y = 2; y <= height - 3; y += 2) {
+            for (int x = 2; x <= width - 3; x += 2) {
+                int direction = random.nextInt(4);
+                switch (direction) {
+                    case 0: // 上
+                        maze[y - 1][x] = true;
+                        break;
+                    case 1: // 下
+                        maze[y + 1][x] = true;
+                        break;
+                    case 2: // 左
+                        maze[y][x - 1] = true;
+                        break;
+                    case 3: // 右
+                        maze[y][x + 1] = true;
+                        break;
+                }
+            }
+        }
+
         // TODO: (2) ルート作成
 
 
