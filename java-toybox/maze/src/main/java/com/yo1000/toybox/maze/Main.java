@@ -1,9 +1,5 @@
 package com.yo1000.toybox.maze;
 
-import java.security.SecureRandom;
-import java.util.Arrays;
-import java.util.random.RandomGenerator;
-
 public class Main {
     public static void main(String[] args) {
         int width = 20;
@@ -29,60 +25,7 @@ public class Main {
         System.out.println("Height: " + height);
         System.out.println();
 
-        // TODO: (1) 迷路作成
-        boolean[][] maze = new boolean[height][width];
-
-        for (int i  = 0; i < height; i++) {
-            maze[i][0] = true;
-            maze[i][width - 1] = true;
-        }
-        for (int i  = 0; i < width; i++) {
-            maze[0][i] = true;
-            maze[height - 1][i] = true;
-        }
-
-        for (int y = 2; y <= height - 3; y += 2) {
-            for (int x = 2; x <= width - 3; x += 2) {
-                maze[y][x] = true;
-            }
-        }
-
-        RandomGenerator random = new SecureRandom();
-
-        for (int y = 2; y <= height - 3; y += 2) {
-            for (int x = 2; x <= width - 3; x += 2) {
-                int direction = random.nextInt(4);
-                switch (direction) {
-                    case 0 -> maze[y - 1][x] = true;
-                    case 1 -> maze[y + 1][x] = true;
-                    case 2 -> maze[y][x - 1] = true;
-                    case 3 -> maze[y][x + 1] = true;
-                }
-            }
-        }
-
-        maze[1][0] = false;
-        maze[height - 2][width - 1] = false;
-
-        // TODO: (2) ルート作成
-
-
-        // 迷路・ルート描画に使用する文字を定義
-        String WALL = "██";
-        String PASSAGE = "  ";
-        String ROUTE = "\u001B[44m  \u001B[0m";
-
-        // TODO: (1) 迷路描画 -> (2) 迷路＆ルート描画
-
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                if (maze[y][x]) {
-                    System.out.print(WALL);
-                } else {
-                    System.out.print(PASSAGE);
-                }
-            }
-            System.out.println();
-        }
+        Maze maze = new MazeGenerator().generate(width, height);
+        System.out.print(new MazeRenderer().render(maze));
     }
 }
