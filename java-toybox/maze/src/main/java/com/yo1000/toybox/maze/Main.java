@@ -39,7 +39,11 @@ public class Main {
             maze[height - 1][i] = true;
         }
 
-
+        for (int y = 2; y <= height - 3; y += 2) {
+            for (int x = 2; x <= width - 3; x += 2) {
+                maze[y][x] = true;
+            }
+        }
         // TODO: (2) ルート作成
 
 
