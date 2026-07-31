@@ -68,6 +68,9 @@ public class Main {
             }
         }
 
+        maze[1][0] = false;
+        maze[height - 2][width - 1] = false;
+
         // TODO: (2) ルート作成
 
 
