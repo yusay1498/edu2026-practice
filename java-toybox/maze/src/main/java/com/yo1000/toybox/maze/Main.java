@@ -25,6 +25,13 @@ public class Main {
             }
         }
 
+        if (width % 2 == 0) {
+            width = width + 1;
+        }
+        if (height % 2 == 0) {
+            height = height + 1;
+        }
+
         System.out.println("Width : " + width);
         System.out.println("Height: " + height);
         System.out.println();
@@ -49,14 +56,33 @@ public class Main {
 
         RandomGenerator random = new SecureRandom();
 
+        // 上・下・左・右への移動量（同じ添字同士がセット）
+        int[] directionY = {-1, 1, 0, 0};
+        int[] directionX = {0, 0, -1, 1};
+
         for (int y = 2; y <= height - 3; y += 2) {
             for (int x = 2; x <= width - 3; x += 2) {
-                int direction = random.nextInt(4);
-                switch (direction) {
-                    case 0 -> maze[y - 1][x] = true;
-                    case 1 -> maze[y + 1][x] = true;
-                    case 2 -> maze[y][x - 1] = true;
-                    case 3 -> maze[y][x + 1] = true;
+                // 常に同じ順番(0→1→2→3)で方向を試すと、既に壁がある場合の
+                // フォールバック先に偏りが出てしまうため、ランダムに並び替えてから探す
+                // (Fisher-Yatesシャッフル)
+                int[] order = {0, 1, 2, 3};
+                for (int i = order.length - 1; i > 0; i--) {
+                    int j = random.nextInt(i + 1);
+                    int tmp = order[i];
+                    order[i] = order[j];
+                    order[j] = tmp;
+                }
+
+                // シャッフルした順に調べて、まだ壁になっていない方向が見つかったら
+                // そこだけに壁を伸ばす（既に壁の場所へ二重に描画しないようにする）
+                for (int direction : order) {
+                    int ny = y + directionY[direction];
+                    int nx = x + directionX[direction];
+
+                    if (!maze[ny][nx]) {
+                        maze[ny][nx] = true;
+                        break;
+                    }
                 }
             }
         }
