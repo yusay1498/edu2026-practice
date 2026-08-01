@@ -6,6 +6,10 @@ public class Maze {
     private final int height;
 
     public Maze(int width, int height) {
+        if (width <= 0 || height <= 0) {
+            throw new IllegalArgumentException("width and height must be > 0");
+        }
+
         this.width = width;
         this.height = height;
         this.walls = new boolean[height][width];

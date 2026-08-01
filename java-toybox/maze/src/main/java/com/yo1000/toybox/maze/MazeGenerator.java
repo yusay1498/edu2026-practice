@@ -15,6 +15,10 @@ public class MazeGenerator {
     }
 
     public Maze generate(int width, int height) {
+        if (width < 3 || height < 3) {
+            throw new IllegalArgumentException("width and height must be >= 3");
+        }
+
         if (width % 2 == 0) {
             width = width + 1;
         }
