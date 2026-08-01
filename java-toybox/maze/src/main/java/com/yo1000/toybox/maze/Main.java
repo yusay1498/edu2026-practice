@@ -21,11 +21,12 @@ public class Main {
             }
         }
 
-        System.out.println("Width : " + width);
-        System.out.println("Height: " + height);
+        Maze maze = new MazeGenerator().generate(width, height);
+
+        System.out.println("Width : " + maze.width());
+        System.out.println("Height: " + maze.height());
         System.out.println();
 
-        Maze maze = new MazeGenerator().generate(width, height);
         System.out.print(new MazeRenderer().render(maze));
     }
 }

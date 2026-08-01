@@ -6,19 +6,19 @@ public enum Direction {
     LEFT(-1, 0),
     RIGHT(1, 0);
 
-    private final int dx;
-    private final int dy;
+    private final int deltaX;
+    private final int deltaY;
 
-    Direction(int dx, int dy) {
-        this.dx = dx;
-        this.dy = dy;
+    Direction(int deltaX, int deltaY) {
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
     }
 
-    public int dx() {
-        return dx;
+    public int deltaX() {
+        return deltaX;
     }
 
-    public int dy() {
-        return dy;
+    public int deltaY() {
+        return deltaY;
     }
 }

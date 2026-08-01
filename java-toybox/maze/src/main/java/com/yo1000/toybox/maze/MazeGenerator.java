@@ -15,11 +15,15 @@ public class MazeGenerator {
     }
 
     public Maze generate(int width, int height) {
+        if (width % 2 == 0) {
+            width = width + 1;
+        }
+        if (height % 2 == 0) {
+            height = height + 1;
+        }
+
         Maze maze = new Maze(width, height);
 
-        // TODO: (1) 迷路作成
-
-        // 外周の壁
         for (int y = 0; y < height; y++) {
             maze.setWall(new Point(0, y), true);
             maze.setWall(new Point(width - 1, y), true);
@@ -29,14 +33,12 @@ public class MazeGenerator {
             maze.setWall(new Point(x, height - 1), true);
         }
 
-        // 内壁の柱
         for (int y = 2; y <= height - 3; y += 2) {
             for (int x = 2; x <= width - 3; x += 2) {
                 maze.setWall(new Point(x, y), true);
             }
         }
 
-        // 柱から四方向いずれかに壁を伸ばす
         Direction[] directions = Direction.values();
         for (int y = 2; y <= height - 3; y += 2) {
             for (int x = 2; x <= width - 3; x += 2) {
@@ -45,7 +47,6 @@ public class MazeGenerator {
             }
         }
 
-        // 入口・出口を開ける
         maze.setWall(new Point(0, 1), false);
         maze.setWall(new Point(width - 1, height - 2), false);
 
