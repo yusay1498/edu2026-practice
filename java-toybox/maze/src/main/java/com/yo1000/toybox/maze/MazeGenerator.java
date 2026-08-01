@@ -1,9 +1,14 @@
 package com.yo1000.toybox.maze;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.random.RandomGenerator;
 
 public class MazeGenerator {
+    private static final List<Direction> DIRECTIONS = List.of(Direction.values());
+
     private final RandomGenerator random;
 
     public MazeGenerator() {
@@ -43,11 +48,9 @@ public class MazeGenerator {
             }
         }
 
-        Direction[] directions = Direction.values();
         for (int y = 2; y <= height - 3; y += 2) {
             for (int x = 2; x <= width - 3; x += 2) {
-                Direction direction = directions[random.nextInt(directions.length)];
-                maze.setWall(new Point(x, y).move(direction), true);
+                extendWallFrom(maze, new Point(x, y));
             }
         }
 
@@ -57,5 +60,23 @@ public class MazeGenerator {
         // TODO: (2) ルート作成
 
         return maze;
+    }
+
+    private void extendWallFrom(Maze maze, Point pillar) {
+        List<Direction> directions = new ArrayList<>(DIRECTIONS);
+        Collections.shuffle(directions, random);
+
+        // 固定順（UP, DOWN, LEFT, RIGHT）のまま先頭から試さない：
+        // 常に同じ順番だとフォールバック先が偏ってしまうため
+        for (Direction direction : directions) {
+            Point target = pillar.move(direction);
+
+            // 壁の有無を確認せず書き込まない：無条件に書き込むと
+            // 既に壁の場所への無駄な描画が起こるため
+            if (!maze.isWall(target)) {
+                maze.setWall(target, true);
+                return;
+            }
+        }
     }
 }
