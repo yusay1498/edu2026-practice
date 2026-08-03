@@ -1,8 +1,12 @@
 package com.example;
 
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, This is exercise.");
-    }
+        Predicate<Integer> isEven = (v) -> v % 2 == 0;
 
+        System.out.println("Is 4 even? " + isEven.test(4));
+        System.out.println("Is 5 even? " + isEven.test(5));
+        System.out.println("Is 10 even? " + isEven.test(10));
+    }
 }
