@@ -55,6 +55,9 @@ public class Main {
 
         System.out.println(toParseInteger.apply("123"));
 
-        
+//        Function<String, String> toUpper = (v) -> v.toUpperCase();
+        Function<String, String> toUpper = String::toUpperCase;
+
+        System.out.println(toUpper.apply("Hello"));
     }
 }
