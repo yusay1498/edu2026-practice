@@ -12,5 +12,14 @@ public class Main {
         Consumer<String> consumer = (v) -> System.out.println("<< " + v + " >>");
         consumer.accept("Hello");
         consumer.accept("Java");
+
+        Function<String, Integer> square =  (v) -> {
+            Integer result = v * v;
+            return result + " is " + v + "squared";
+        };
+
+        System.out.println(square.apply(5));
+        System.out.println(square.apply(10));
+        System.out.println(square.apply(-4));
     }
 }
