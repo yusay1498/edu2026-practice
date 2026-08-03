@@ -51,6 +51,10 @@ public class Main {
         log.accept("Hello");
         log.accept("Java");
 
+        Function<String, Integer> toParseInteger = Integer::parseInt;
 
+        System.out.println(toParseInteger.apply("123"));
+
+        
     }
 }
