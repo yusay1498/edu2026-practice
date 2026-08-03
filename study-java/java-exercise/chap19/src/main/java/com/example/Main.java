@@ -26,5 +26,12 @@ public class Main {
 
         System.out.println("Length of 'Hello' is " + length.apply("Hello"));
         System.out.println("Length of 'Java' is " + length.apply("Java"));
+
+        Function<Integer, String> isOdd = (v) -> v % 2 != 0 ? v + " is odd" : v + " is even";
+        System.out.println(isOdd.apply(5));
+        System.out.println(isOdd.apply(10));
+        System.out.println(isOdd.apply(-4));
+
+        
     }
 }
