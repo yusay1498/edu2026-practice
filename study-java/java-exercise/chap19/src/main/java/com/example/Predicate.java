@@ -1,5 +1,5 @@
 package com.example;
 
-public interface Predicate<T> {
+public interface Predicate<Integer> {
     boolean test(Integer value);
 }
