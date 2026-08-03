@@ -44,5 +44,12 @@ public class Main {
         System.out.println(triple.apply(5));
         System.out.println(triple.apply(10));
         System.out.println(triple.apply(-4));
+
+        Consumer<String> log = (v) -> System.out.println("Log is " + v);
+
+        log.accept("Hello");
+        log.accept("Java");
+
+
     }
 }
