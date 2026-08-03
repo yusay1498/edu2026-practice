@@ -51,9 +51,9 @@ public class Main {
         log.accept("Hello");
         log.accept("Java");
 
-        Function<String, Integer> toParseInteger = Integer::parseInt;
+        Function<String, Integer> toInteger = Integer::parseInt;
 
-        System.out.println(toParseInteger.apply("123"));
+        System.out.println(toInteger.apply("123"));
 
 //        Function<String, String> toUpper = (v) -> v.toUpperCase();
         Function<String, String> toUpper = String::toUpperCase;
