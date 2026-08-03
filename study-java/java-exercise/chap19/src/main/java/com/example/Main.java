@@ -42,9 +42,9 @@ public class Main {
 
         Function<Integer, Integer> triple = (v) -> v * 3;
 
-        System.out.println(triple.apply(5));
-        System.out.println(triple.apply(10));
-        System.out.println(triple.apply(-4));
+        System.out.println(3 + " -> " + triple.apply(3));
+        System.out.println(5 + " -> " + triple.apply(5));
+        System.out.println(10 + " -> " + triple.apply(10));
 
         Consumer<String> log = (v) -> System.out.println("Log is " + v);
 
