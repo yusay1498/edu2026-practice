@@ -10,6 +10,7 @@ public class Main {
         System.out.println("Is 10 even? " + isEven.test(10));
 
         Consumer<String> consumer = (v) -> System.out.println("<< " + v + " >>");
+
         consumer.accept("Hello");
         consumer.accept("Java");
 
