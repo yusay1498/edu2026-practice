@@ -1,5 +1,5 @@
 package com.example;
 
-public interface Function<String, Integer> {
-    String apply(Integer value);
+public interface Function<T, R> {
+    R apply(T value);
 }

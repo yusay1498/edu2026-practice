@@ -13,7 +13,7 @@ public class Main {
         consumer.accept("Hello");
         consumer.accept("Java");
 
-        Function<String, Integer> square =  (v) -> {
+        Function<Integer, String> square =  (Integer v) -> {
             Integer result = v * v;
             return result + " is " + v + "squared";
         };
@@ -21,5 +21,10 @@ public class Main {
         System.out.println(square.apply(5));
         System.out.println(square.apply(10));
         System.out.println(square.apply(-4));
+
+        Function<String, Integer> length = (s) -> s.length();
+
+        System.out.println("Length of 'Hello' is " + length.apply("Hello"));
+        System.out.println("Length of 'Java' is " + length.apply("Java"));
     }
 }
