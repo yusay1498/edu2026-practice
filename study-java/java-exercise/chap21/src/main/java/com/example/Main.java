@@ -26,5 +26,11 @@ public class Main {
                 .findFirst()
                 .map(healthFood -> healthFood.name() + " : " + healthFood.price())
                 .orElse("No health food found"));
+
+        System.out.println("----- exercise.03 -----");
+
+        System.out.println(healthFoodList.stream()
+                .map(HealthFood::price)
+                .reduce(0, Integer::sum));
     }
 }
