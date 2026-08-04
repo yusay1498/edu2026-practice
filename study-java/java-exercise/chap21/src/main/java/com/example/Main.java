@@ -32,5 +32,12 @@ public class Main {
         System.out.println(healthFoodList.stream()
                 .map(HealthFood::price)
                 .reduce(0, Integer::sum));
+
+        System.out.println("----- exercise.04 -----");
+
+        System.out.println(healthFoodList.stream()
+                .max((hf1, hf2) -> Integer.compare(hf1.price(), hf2.price()))
+                .map(healthFood -> healthFood.name() + " : " + healthFood.price())
+                .orElse("No health food found"));
     }
 }
