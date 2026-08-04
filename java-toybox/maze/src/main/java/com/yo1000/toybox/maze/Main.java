@@ -8,16 +8,18 @@ public class Main {
         if (args.length >= 1) {
             try {
                 width = Integer.parseInt(args[0]);
-            } catch (Exception e) {
-                throw new IllegalArgumentException("Invalid width: " + args[0]);
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid width: " + args[0]);
+                System.out.println("Usage default width");
             }
         }
 
         if (args.length >= 2) {
             try {
                 height = Integer.parseInt(args[1]);
-            } catch (Exception e) {
-                throw new IllegalArgumentException("Invalid height: " + args[1]);
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid height: " + args[1]);
+                System.out.println("Usage default height");
             }
         }
 
