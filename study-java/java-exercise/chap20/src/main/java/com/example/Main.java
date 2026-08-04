@@ -18,7 +18,7 @@ public class Main {
 
         healthFoodList.stream()
                 .filter(hf -> hf.price() > 500)
-                .forEach(hf -> System.out.println(hf.name() + " : " + hf.price() + "円"));
+                .forEach(hf -> System.out.println(hf.name() + " : " + hf.price()));
 
         System.out.println("----- exercise.02 -----");
 
