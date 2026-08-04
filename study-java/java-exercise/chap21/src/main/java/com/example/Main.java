@@ -19,6 +19,12 @@ public class Main {
                 .anyMatch(healthFood -> healthFood.category().equals("Energy"))
                 ? "Energy category exists"
                 : "Energy category does not exist");
-    }
 
+        System.out.println("----- exercise.02 -----");
+
+        System.out.println(healthFoodList.stream()
+                .findFirst()
+                .map(healthFood -> healthFood.name() + " : " + healthFood.price())
+                .orElse("No health food found"));
+    }
 }
