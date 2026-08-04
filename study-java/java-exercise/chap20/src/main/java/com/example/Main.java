@@ -33,6 +33,13 @@ public class Main {
                 .flatMap(List::stream)
                 .distinct()
                 .forEach(System.out::println);
+
+        System.out.println("----- exercise.04 -----");
+
+        healthFoodList.stream()
+                .sorted((hf1, hf2) -> Integer.compare(hf1.price(), hf2.price()))
+                .map(healthFood -> healthFood.name() + " : " + healthFood.price())
+                .forEach(System.out::println);
     }
 
 }
