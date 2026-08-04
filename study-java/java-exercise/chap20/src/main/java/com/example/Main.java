@@ -40,6 +40,14 @@ public class Main {
                 .sorted((hf1, hf2) -> Integer.compare(hf1.price(), hf2.price()))
                 .map(healthFood -> healthFood.name() + " : " + healthFood.price())
                 .forEach(System.out::println);
-    }
 
+        System.out.println("----- exercise.05 -----");
+
+        healthFoodList.stream()
+                .sorted((hf1, hf2) -> Integer.compare(hf1.price(), hf2.price()))
+                .skip(2)
+                .limit(3)
+                .map(healthFood -> healthFood.name() + " : " + healthFood.price())
+                .forEach(System.out::println);
+    }
 }
