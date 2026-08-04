@@ -49,5 +49,12 @@ public class Main {
                 .limit(3)
                 .map(healthFood -> healthFood.name() + " : " + healthFood.price())
                 .forEach(System.out::println);
+
+        System.out.println("----- exercise.06 -----");
+
+        drugStoreList.stream()
+                .map(DrugStore::items)
+                .flatMap(List::stream)
+                .forEach(System.out::println);
     }
 }
