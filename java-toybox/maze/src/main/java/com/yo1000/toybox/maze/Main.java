@@ -23,6 +23,11 @@ public class Main {
             }
         }
 
+        if (width < 3 || height < 3) {
+            System.err.println("Width and height must be >= 3");
+            System.exit(1);
+        }
+
         Maze maze = new MazeGenerator().generate(width, height);
 
         System.out.println("Width : " + maze.width());
