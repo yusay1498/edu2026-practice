@@ -56,5 +56,15 @@ public class Main {
                 .map(DrugStore::items)
                 .flatMap(List::stream)
                 .forEach(System.out::println);
+
+        System.out.println("----- exercise.07 -----");
+
+        drugStoreList.stream()
+                .mapMulti((item, consumer) -> {
+                    for (String i : item.items()) {
+                        consumer.accept(i);
+                    }
+                })
+                .forEach(System.out::println);
     }
 }
