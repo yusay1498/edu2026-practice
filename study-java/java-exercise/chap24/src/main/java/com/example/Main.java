@@ -31,6 +31,12 @@ public class Main {
         }
 
         System.out.println("----- exercise.04 -----");
+
+        watchList.stream()
+                .filter(watch -> watch.movement() == MovementType.MECHANICAL)
+                .map(watch -> watch.model() + "(" + watch.movement() + ") : " + watch.stock())
+                .forEach(System.out::println);
+
         System.out.println("----- exercise.05 -----");
         System.out.println("----- exercise.06 -----");
     }
