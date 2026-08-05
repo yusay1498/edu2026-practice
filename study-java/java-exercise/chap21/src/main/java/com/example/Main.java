@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,6 +49,18 @@ public class Main {
                 .forEach((category, foods) -> {
                     System.out.println(category + ":");
                     foods.forEach(food -> System.out.println("  " + food.name() + " : " + food.price()));
+                });
+
+        System.out.println("----- exercise.06 -----");
+
+        healthFoodList.stream()
+                .collect(partitioningBy(
+                        (healthFood -> healthFood.price() > 500),
+                        mapping(HealthFood::name, toList())))
+                .forEach((category, foods) -> {
+                    System.out.println(category + ":");
+                    foods.forEach(food -> System.out.print(food + " "));
+                    System.out.println();
                 });
     }
 }
