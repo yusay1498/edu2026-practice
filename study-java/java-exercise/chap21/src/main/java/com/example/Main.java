@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.List;
+import java.util.Map;
 
 import static java.util.stream.Collectors.*;
 
@@ -70,5 +71,15 @@ public class Main {
                 .collect(joining(", ", "[", "]"))
                 .lines()
                 .forEach(System.out::println);
+
+        System.out.println("----- exercise.08 -----");
+
+        healthFoodList.stream()
+                .collect(toMap(healthFood -> healthFood.name() + "-" + healthFood.category(),
+                        HealthFood::price,
+                        (price1, price2) -> price1))
+                .forEach((key, value) -> {
+                    System.out.println(key + " : " + value);
+                });
     }
 }
