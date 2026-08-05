@@ -1,7 +1,7 @@
 package com.example;
 
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.stream.Collectors.*;
 
@@ -9,10 +9,6 @@ public class Main {
     public static void main(String[] args) {
         List<HealthFood> healthFoodList = new HealthFood(
                 "dummy", 0, "dummy"
-        ).getList();
-
-        List<DrugStore> drugStoreList = new DrugStore(
-                "dummy", List.of("dummy")
         ).getList();
 
         System.out.println("===== chap.21 Stream API step up ======");
@@ -39,7 +35,7 @@ public class Main {
         System.out.println("----- exercise.04 -----");
 
         System.out.println(healthFoodList.stream()
-                .max((hf1, hf2) -> Integer.compare(hf1.price(), hf2.price()))
+                .max(Comparator.comparingInt(HealthFood::price))
                 .map(healthFood -> healthFood.name() + " : " + healthFood.price())
                 .orElse("No health food found"));
 
@@ -77,9 +73,7 @@ public class Main {
         healthFoodList.stream()
                 .collect(toMap(healthFood -> healthFood.name() + "-" + healthFood.category(),
                         HealthFood::price,
-                        (price1, price2) -> price1))
-                .forEach((key, value) -> {
-                    System.out.println(key + " : " + value);
-                });
+                        (price1, _) -> price1))
+                .forEach((key, value) -> System.out.println(key + " : " + value));
     }
 }
