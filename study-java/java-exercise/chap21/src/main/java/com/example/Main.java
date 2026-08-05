@@ -62,5 +62,13 @@ public class Main {
                     foods.forEach(food -> System.out.print(food + " "));
                     System.out.println();
                 });
+
+        System.out.println("----- exercise.07 -----");
+
+        healthFoodList.stream()
+                .map(HealthFood::name)
+                .collect(joining(", ", "[", "]"))
+                .lines()
+                .forEach(System.out::println);
     }
 }
