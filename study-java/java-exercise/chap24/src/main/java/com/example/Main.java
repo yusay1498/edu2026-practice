@@ -38,6 +38,9 @@ public class Main {
                 .forEach(System.out::println);
 
         System.out.println("----- exercise.05 -----");
-        System.out.println("----- exercise.06 -----");
+
+        for (MovementTypeWithCode type : MovementTypeWithCode.values()) {
+            System.out.println(type + " : " + type.getCode());
+        }
     }
 }
