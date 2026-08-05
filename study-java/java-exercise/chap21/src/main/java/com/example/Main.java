@@ -2,6 +2,8 @@ package com.example;
 
 import java.util.List;
 
+import static java.util.stream.Collectors.groupingBy;
+
 public class Main {
     public static void main(String[] args) {
         List<HealthFood> healthFoodList = new HealthFood(
@@ -39,5 +41,14 @@ public class Main {
                 .max((hf1, hf2) -> Integer.compare(hf1.price(), hf2.price()))
                 .map(healthFood -> healthFood.name() + " : " + healthFood.price())
                 .orElse("No health food found"));
+
+        System.out.println("----- exercise.05 -----");
+
+        healthFoodList.stream()
+                .collect(groupingBy(HealthFood::category))
+                .forEach((category, foods) -> {
+                    System.out.println(category + ":");
+                    foods.forEach(food -> System.out.println("  " + food.name() + " : " + food.price()));
+                });
     }
 }
