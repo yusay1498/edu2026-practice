@@ -57,7 +57,11 @@ public class MazeGenerator {
         maze.setWall(new Point(0, 1), false);
         maze.setWall(new Point(width - 1, height - 2), false);
 
-        // TODO: (2) ルート作成
+        Point start = new Point(0, 1);
+        Point goal = new Point(width - 1, height - 2);
+
+        List<Point> route = new LeftHandRouteBuilder(maze).build(start, goal, Direction.RIGHT);
+        route.forEach(point -> maze.setRoute(point, true));
 
         return maze;
     }

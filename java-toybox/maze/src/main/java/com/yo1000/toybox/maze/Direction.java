@@ -21,4 +21,31 @@ public enum Direction {
     public int deltaY() {
         return deltaY;
     }
+
+    public Direction turnLeft() {
+        return switch (this) {
+            case RIGHT -> UP;
+            case UP -> LEFT;
+            case LEFT -> DOWN;
+            case DOWN -> RIGHT;
+        };
+    }
+
+    public Direction turnRight() {
+        return switch (this) {
+            case RIGHT -> DOWN;
+            case DOWN -> LEFT;
+            case LEFT -> UP;
+            case UP -> RIGHT;
+        };
+    }
+
+    public Direction turnBack() {
+        return switch (this) {
+            case RIGHT -> LEFT;
+            case LEFT -> RIGHT;
+            case UP -> DOWN;
+            case DOWN -> UP;
+        };
+    }
 }
