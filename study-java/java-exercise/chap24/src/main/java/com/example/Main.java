@@ -23,6 +23,13 @@ public class Main {
         watchList.forEach(System.out::println);
 
         System.out.println("----- exercise.03 -----");
+
+        List<MovementType> movementList = List.of(MovementType.values());
+
+        for (MovementType movement : movementList) {
+            System.out.println(movement.name() + " : " + movement.ordinal());
+        }
+
         System.out.println("----- exercise.04 -----");
         System.out.println("----- exercise.05 -----");
         System.out.println("----- exercise.06 -----");
