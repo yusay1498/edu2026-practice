@@ -12,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/cards")
@@ -44,5 +45,22 @@ public class CardRestController {
                 .toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Card> patch(
+            @PathVariable int id,
+            @RequestBody Card card) {
+        if (!Objects.equals(id, card.id())) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(service.update(card));
+    }
+
+    @DeleteMapping("id")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

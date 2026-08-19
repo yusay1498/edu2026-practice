@@ -49,12 +49,11 @@ public class CardApplicationService {
         return repository.save(card);
     }
 
-    public int delete(int id) {
+    public void delete(int id) {
         int result = repository.delete(id);
 
         if (result != 1) {
             throw new ResourceNotFoundException("Delete failed");
         }
-        return result;
     }
 }
