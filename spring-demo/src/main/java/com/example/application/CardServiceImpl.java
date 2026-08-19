@@ -4,7 +4,7 @@
  */
 package com.example.application;
 
-import com.example.dto.CardDetail;
+import com.example.domain.entity.CardDetail;
 import com.example.domain.entity.Card;
 import com.example.domain.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Qualifier;

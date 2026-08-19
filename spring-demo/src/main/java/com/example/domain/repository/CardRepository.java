@@ -4,7 +4,7 @@
  */
 package com.example.domain.repository;
 
-import com.example.dto.CardDetail;
+import com.example.domain.entity.CardDetail;
 import com.example.domain.entity.Card;
 
 import java.util.List;

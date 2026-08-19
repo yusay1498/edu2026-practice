@@ -5,7 +5,7 @@
 package com.example.infrastructure;
 
 import com.example.domain.repository.CardRepository;
-import com.example.dto.CardDetail;
+import com.example.domain.entity.CardDetail;
 import com.example.domain.entity.Card;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;

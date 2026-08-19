@@ -4,7 +4,7 @@
  */
 package com.example.presentation;
 
-import com.example.dto.CardDetail;
+import com.example.domain.entity.CardDetail;
 import com.example.domain.entity.Card;
 import com.example.application.CardService;
 import org.springframework.http.ResponseEntity;
