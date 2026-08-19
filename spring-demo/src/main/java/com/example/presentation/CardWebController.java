@@ -6,7 +6,6 @@ package com.example.presentation;
 
 import com.example.dto.CardSearchForm;
 import com.example.domain.entity.Card;
-import com.example.application.CardService;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +27,7 @@ public class CardWebController {
 
     @GetMapping
     public String showList() {
-        List<Card> cards = service.findAll();
+        List<Card> cards = service.list();
         return CardHtmlBuilder.buildListHtml(cards);
     }
 
@@ -46,7 +45,7 @@ public class CardWebController {
         }
 
         int id = Integer.parseInt(form.getId());
-        Card card = service.findById(id);
+        Card card = service.lookup(id);
         return CardHtmlBuilder.buildDetailHtml(card);
     }
 }

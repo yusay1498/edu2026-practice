@@ -8,14 +8,14 @@ import com.example.domain.entity.CardDetail;
 import com.example.domain.entity.Card;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CardRepository {
 
-    Card findById(int id);
+    Optional<Card> findById(int id);
     CardDetail findDetailById(int id);
     List<Card> findAll();
-    int insert(Card card);
-    int update(Card card);
+    Card save(Card card);
     int delete(int id);
 
 }

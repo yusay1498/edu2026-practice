@@ -10,9 +10,10 @@ import com.example.domain.entity.Card;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository("cardRepositoryMockImpl")
-public class CardRepositoryMockImpl implements CardRepository {
+public class MockCardRepository implements CardRepository {
 
     private static final List<Card> MOCK_CARDS = List.of(
             new Card(1, "Geezard_Mock", 1, null, 1, 4, 1, 5),
@@ -28,13 +29,10 @@ public class CardRepositoryMockImpl implements CardRepository {
     );
 
     @Override
-    public Card findById(int id) {
+    public Optional<Card> findById(int id) {
         return MOCK_CARDS.stream()
                 .filter(card -> card.id().equals(id))
-                .findFirst() // Optional<Card>を返す
-                .orElse(null); // 見つかっていれば、Optional<Card>からCardを取り出して返す
-        // 見つかっていなければ、nullを返す
-        // → 最終的にはOptionalでない型で返したい
+                .findFirst();
     }
 
     @Override
@@ -60,16 +58,9 @@ public class CardRepositoryMockImpl implements CardRepository {
     }
 
     @Override
-    public int insert(Card card) {
-        // 挿入したつもりで成功値をそのまま返す
-        return 1;
-    }
-
-    @Override
-    public int update(Card card) {
-        // 更新したつもりで成功値をそのまま返す
-        return 1;
-
+    public Card save(Card card) {
+        // 保存したつもりでそのまま返す
+        return card;
     }
 
     @Override
