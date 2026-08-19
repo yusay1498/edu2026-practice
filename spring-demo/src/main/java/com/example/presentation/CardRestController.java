@@ -58,7 +58,7 @@ public class CardRestController {
         return ResponseEntity.ok(service.update(card));
     }
 
-    @DeleteMapping("id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id) {
         service.delete(id);
         return ResponseEntity.noContent().build();

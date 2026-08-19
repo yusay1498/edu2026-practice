@@ -8,7 +8,6 @@ import com.example.domain.ResourceNotFoundException;
 import com.example.domain.entity.CardDetail;
 import com.example.domain.entity.Card;
 import com.example.domain.repository.CardRepository;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
