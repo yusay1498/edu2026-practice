@@ -4,6 +4,7 @@
  */
 package com.example.application;
 
+import com.example.domain.ResourceNotFoundException;
 import com.example.domain.entity.CardDetail;
 import com.example.domain.entity.Card;
 import com.example.domain.repository.CardRepository;
@@ -27,63 +28,57 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public Card findById(int id) {
-        // TO DO : RepositoryのfindById()を実行
-        return null; // TO DO : あとで削除
+        Card card = repository.findById(id);
 
-//        if (card == null) {
-//            throw new ResourceNotFoundException("Card not found");
-//        }
-//        return card;
+        if (card == null) {
+            throw new ResourceNotFoundException("Card not found");
+        }
+        return card;
     }
 
     @Override
     public CardDetail findDetailById(int id) {
-        // TO DO : RepositoryのfindDetailById()を実行
-        return null; // TO DO : あとで削除
+        CardDetail detail = findDetailById(id);
 
-//        if (detail == null) {
-//            throw new ResourceNotFoundException("Card detail not found");
-//        }
-//        return detail;
+        if (detail == null) {
+            throw new ResourceNotFoundException("Card detail not found");
+        }
+        return detail;
     }
 
     @Override
     public List<Card> findAll() {
-        // TO DO : RepositoryのfindAll()を実行
-        return null; // TO DO : あとで削除
+        return repository.findAll();
 
     }
 
     @Override
     public int insert(Card card) {
-        // TO DO : Repositoryのinsert()を実行
-        return 0; // TO DO : あとで削除
+        int result = repository.insert(card);
 
-//        if (result != 1) {
-//            throw new ResourceNotFoundException("Insert failed");
-//        }
-//        return result;
+        if (result != 1) {
+            throw new ResourceNotFoundException("Insert failed");
+        }
+        return result;
     }
 
     @Override
     public int update(Card card) {
-        // TO DO : Repositoryのupdate()を実行
-        return 0; // TO DO : あとで削除
+        int result = repository.update(card);
 
-//        if (result != 1) {
-//            throw new ResourceNotFoundException("Update failed");
-//        }
-//        return result;
+        if (result != 1) {
+            throw new ResourceNotFoundException("Update failed");
+        }
+        return result;
     }
 
     @Override
     public int delete(int id) {
-        // TO DO : Repositoryのupdate()を実行
-        return 0; // TO DO : あとで削除
+        int result = repository.delete(id);
 
-//        if (result != 1) {
-//            throw new ResourceNotFoundException("Delete failed");
-//        }
-//        return result;
+        if (result != 1) {
+            throw new ResourceNotFoundException("Delete failed");
+        }
+        return result;
     }
 }
