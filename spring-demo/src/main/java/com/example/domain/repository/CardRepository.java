@@ -2,13 +2,14 @@
  * All Rights Reserved, Copyright(c) 2026 Fujitsu Learning Media Limited
  *
  */
-package com.example.service;
+package com.example.domain.repository;
 
 import com.example.dto.CardDetail;
-import com.example.entity.card.Card;
+import com.example.domain.entity.Card;
+
 import java.util.List;
 
-public interface CardService {
+public interface CardRepository {
 
     Card findById(int id);
     CardDetail findDetailById(int id);

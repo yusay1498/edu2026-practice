@@ -2,12 +2,11 @@
  * All Rights Reserved, Copyright(c) 2026 Fujitsu Learning Media Limited
  *
  */
-package com.example.service;
+package com.example.application;
 
-import com.example.common.ResourceNotFoundException;
 import com.example.dto.CardDetail;
-import com.example.entity.card.Card;
-import com.example.repository.CardRepository;
+import com.example.domain.entity.Card;
+import com.example.domain.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 

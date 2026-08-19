@@ -2,11 +2,11 @@
  * All Rights Reserved, Copyright(c) 2026 Fujitsu Learning Media Limited
  *
  */
-package com.example.controller;
+package com.example.presentation;
 
 import com.example.dto.CardSearchForm;
-import com.example.entity.card.Card;
-import com.example.service.CardService;
+import com.example.domain.entity.Card;
+import com.example.application.CardService;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;

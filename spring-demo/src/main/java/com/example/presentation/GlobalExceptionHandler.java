@@ -2,8 +2,9 @@
  * All Rights Reserved, Copyright(c) 2026 Fujitsu Learning Media Limited
  *
  */
-package com.example.common;
+package com.example.presentation;
 
+import com.example.domain.ResourceNotFoundException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

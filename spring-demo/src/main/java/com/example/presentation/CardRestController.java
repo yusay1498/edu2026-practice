@@ -2,17 +2,13 @@
  * All Rights Reserved, Copyright(c) 2026 Fujitsu Learning Media Limited
  *
  */
-package com.example.controller;
+package com.example.presentation;
 
-import com.example.common.ResourceNotFoundException;
 import com.example.dto.CardDetail;
-import com.example.entity.card.Card;
-import com.example.service.CardService;
-import org.springframework.http.HttpStatus;
+import com.example.domain.entity.Card;
+import com.example.application.CardService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")

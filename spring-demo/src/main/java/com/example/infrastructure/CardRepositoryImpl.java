@@ -2,10 +2,11 @@
  * All Rights Reserved, Copyright(c) 2026 Fujitsu Learning Media Limited
  *
  */
-package com.example.repository;
+package com.example.infrastructure;
 
+import com.example.domain.repository.CardRepository;
 import com.example.dto.CardDetail;
-import com.example.entity.card.Card;
+import com.example.domain.entity.Card;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 

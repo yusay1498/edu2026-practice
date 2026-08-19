@@ -2,9 +2,9 @@
  * All Rights Reserved, Copyright(c) 2026 Fujitsu Learning Media Limited
  *
  */
-package com.example.controller;
+package com.example.presentation;
 
-import com.example.entity.card.Card;
+import com.example.domain.entity.Card;
 
 import java.util.List;
 
