@@ -1,0 +1,31 @@
+# 演習用 curl テンプレート
+# 使い方：
+# 1. このファイルを開く
+# 2. JSON, URL(必要なら) の値を変更する
+# 3. 必要個所をコピーしてターミナルに貼り付ける
+
+#insert用
+curl -X POST http://localhost:8080/api/item \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 51,
+        "name": "Test-Hi-Potion",
+        "price": 1800,
+        "sell_price": 900
+      }'
+
+#update用
+curl -X PATCH http://localhost:8080/api/item/51 \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 51,
+        "name": "Test-Hi-Potion-Modified",
+        "price": 4000,
+        "sell_price": 2000
+      }'
+
+#delete用
+curl -X DELETE http://localhost:8080/api/item/51
+
+
+
