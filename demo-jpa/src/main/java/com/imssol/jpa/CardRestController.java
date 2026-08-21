@@ -28,7 +28,7 @@ public class CardRestController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Card> getById(
-            @PathVariable("id") Integer id
+            @PathVariable Integer id
     ) {
         return jpaCardRepository.findById(id)
                 .map(ResponseEntity::ok)
@@ -44,7 +44,7 @@ public class CardRestController {
 
     @PutMapping("/{id}")
     public Card put(
-            @PathVariable("id") Integer id,
+            @PathVariable Integer id,
             @RequestBody Card card
     ) {
         return jpaCardRepository.findById(id).map(
